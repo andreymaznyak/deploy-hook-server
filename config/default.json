@@ -1,0 +1,8 @@
+{
+  "port": 42012,
+  "access-header-name": "deploy-token",
+  "access-header-value": "meex0c8wdmcpjhjtssrfbevejzarhydnoe8g0bxot8fojk708kaiegbo091oaaybl",
+  "min-time-between-deploy": 3000,
+  "execute-script-path": "./tests/test-deploy-script.sh"
+}
+

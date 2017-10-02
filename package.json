@@ -1,0 +1,22 @@
+{
+  "name": "deploy-hook-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./tests",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.cardpay-test.com/a.maznyak/deploy-hook-server.git"
+  },
+  "author": "Andrey Maznyak <andreymaznyak@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.26.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
