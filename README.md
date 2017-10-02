@@ -1,4 +1,6 @@
 # Library for create deploy hook server #
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/andreymaznyak/deploy-hook-server.svg)](https://greenkeeper.io/)
 Server listen port and check headers, if headers correct, server execute custom script
 
 
