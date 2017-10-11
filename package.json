@@ -1,6 +1,6 @@
 {
   "name": "deploy-hook-server",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "tests/index.js",
   "scripts": {
