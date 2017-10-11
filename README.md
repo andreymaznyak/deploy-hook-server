@@ -6,16 +6,33 @@ Server listen port and check headers, if headers correct, server execute custom 
 install library `npm i deploy-hook-server`  
 start server:  
 ```javascript
-const serverLib = require('deploy-hook-server/lib/server');  
-const server = serverLib.Server(40312, 'access-header-name', 'access-header-value', './execute/script/path.sh');
-```
-if need environments read how use [config library](https://www.npmjs.com/package/config)
-# Variables #
-```json
-{
-  "port": 40312,
-  "access-header-name": "deploy-token",
-  "access-header-value": "meex0c8wdmcpjhjsssrfbeveasarhydnoe9g0bxot8fojk708kaiegbo091oaaybl",
-  "execute-script-path": "./tests/test-deploy-script.sh"
-}
+const serverLib = require('../lib/server');
+const server = serverLib.Server({
+    port: 40312,
+    accessHeaderName: 'deploy-token',
+    accessHeaderValue: 'meex0c8wdmcpjhjsssrfbeveasarhydnoe9g0bxot8fojk708kaiegbo091oaaybl',
+    handlerOptions: {
+        executeScriptPath: './tests/test-deploy-script.sh',
+        formatExecuteScriptFn: function (currentPath, deployParams) {
+            console.log('formatExecuteScriptFn', `currentPath:${currentPath}`, 'deployParams:', deployParams);
+            currentPath += ' ' + deployParams['deployService'];
+            currentPath += ' ' + deployParams['deployVersion'];
+            return currentPath;
+        },
+    },
+    extractRequestDataFn: function (req, res) {
+        return new Promise( (resolve, reject) => {
+            if ( req.headers['content-type'] !== 'application/json' ) {
+                return reject(new Error('Content type must be application/json'));
+            }
+            let totalData = '';
+            req.on('data', function (data) {
+                totalData+= data;
+            });
+            req.on('end', function () {
+                resolve( JSON.parse(totalData) );
+            });
+        });
+    }
+});
 ```

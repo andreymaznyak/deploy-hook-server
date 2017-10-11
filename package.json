@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./tests",
+    "test": "nodemon ./tests",
     "start": "nodemon index.js"
   },
   "repository": {
@@ -13,10 +13,11 @@
   },
   "author": "Andrey Maznyak <andreymaznyak@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "config": "^1.26.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": ">=7.6.0"
   }
 }
