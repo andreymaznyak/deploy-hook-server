@@ -2,10 +2,14 @@
 
 Server listen port and check headers, if headers correct, server execute custom script
 
+# Architecture
+
+Event source (http, https, http2 and other) -> Event filter ( parse body ) -> Script Executor ( exec bash, send req )
+
 # ROADMAP v2
 
 1. Migrate to typescript
-1. Run as https server
+1. Run as http2 server
 1. Add auto tests
 1. Add store commit data
 1. Add documentation

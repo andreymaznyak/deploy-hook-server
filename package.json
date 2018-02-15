@@ -4,6 +4,7 @@
   "description": "",
   "main": "tests/index.js",
   "scripts": {
+    "tsc": "tsc",
     "test": "nodemon ./tests",
     "start": "nodemon index.js"
   },
@@ -15,7 +16,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "@types/node": "^9.4.5",
+    "nodemon": "^1.12.1",
+    "typescript": "^2.7.1"
   },
   "engines": {
     "node": ">=7.6.0"
